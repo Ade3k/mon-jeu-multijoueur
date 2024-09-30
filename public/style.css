@@ -1,0 +1,103 @@
+/* Style général pour la page */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Style du formulaire de connexion */
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#loginForm input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 200px;
+    font-size: 16px;
+}
+
+#startGame {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+}
+
+#startGame:hover {
+    background-color: #0056b3;
+}
+
+/* Style de la sélection d'avatars */
+#avatarSelection {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#avatarSelection img {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+#avatarSelection img.selected {
+    border-color: #007BFF;
+}
+
+.avatar-option:hover {
+    background-color: #007BFF;
+    filter: contrast(1.5);
+}
+
+/* Style pour le message de bienvenue */
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style pour le bouton de démarrage du jeu */
+.button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+

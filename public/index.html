@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil du jeu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(249, 247, 238);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .avatar-option {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .avatar-option.selected {
+            border: 2px solid #007BFF;
+        }
+
+        #startGame {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        #startGame:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bienvenue dans mon deuxième projet à l'IFOCOP!</h1>
+    <p>Choisissez un avatar et saisissez un pseudonyme, puis cliquez sur "Commencer".</p>
+
+    <!-- Formulaire pour le pseudonyme -->
+    <div id="loginForm">
+        <label for="username">Pseudonyme :</label>
+        <input type="text" id="username" placeholder="Entrez votre pseudonyme" required>
+
+        <!-- Choix de l'avatar -->
+        <p>Choisissez un avatar :</p>
+        <div id="avatarSelection">
+            <img class="avatar-option" src="avatar1.png" data-avatar="avatar1.png" alt="Avatar 1" width="100">
+            <img class="avatar-option" src="avatar2.png" data-avatar="avatar2.png" alt="Avatar 2" width="100">
+            <img class="avatar-option" src="avatar3.png" data-avatar="avatar3.png" alt="Avatar 3" width="100">
+        </div>
+
+        <button id="startGame">Commencer la partie</button>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usernameInput = document.getElementById('username');
+            const startGameButton = document.getElementById('startGame');
+            let selectedAvatar = '';
+
+            // Gestion de la sélection de l'avatar
+            const avatarImages = document.querySelectorAll('.avatar-option');
+            avatarImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    // Retirer la classe 'selected' de tous les avatars
+                    avatarImages.forEach(avatar => avatar.classList.remove('selected'));
+
+                    // Ajouter la classe 'selected' à l'avatar cliqué
+                    img.classList.add('selected');
+
+                    // Sauvegarder l'avatar sélectionné
+                    selectedAvatar = img.getAttribute('data-avatar');
+                });
+            });
+
+            // Validation et démarrage du jeu
+            startGameButton.addEventListener('click', () => {
+                const username = usernameInput.value.trim();
+
+                if (!username) {
+                    alert("Veuillez entrer un pseudonyme !");
+                    return;
+                }
+
+                if (!selectedAvatar) {
+                    alert("Veuillez sélectionner un avatar !");
+                    return;
+                }
+
+                // Démarrer le jeu en redirigeant vers la page de jeu avec le pseudonyme et l'avatar
+                window.location.href = `PageJeu.html?username=${ username }&avatar=${ selectedAvatar }`;
+            });
+        });
+    </script>
+    <script src="/public/index.js"></script>
+</body>
+
+</html>
